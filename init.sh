@@ -21,11 +21,11 @@ sudo apt install chromium-browser bluedevil putty thunderbird wireshark mutt ftp
 #Misc.
 sudo apt install gparted timeshift htop powerline python-powerline fonts-powerline virtualbox xterm qps git mtools dosfstools cifs-utils mariadb-common
 sudo apt install adwaita-icon-theme adwaita-icon-theme-full adwaita-qt conky
-sudo snap install discord barrier-kvm cheat conda dmd hello zoom-client
+sudo snap install discord barrier-kvm cheat conda hello zoom-client
 
 #Programming
 sudo apt install arduino arduino-core codeblocks cutter ecj clang cmake geany thonny ant apache2 automake c2hs cloc cpp cpp-8 g++ g++-8 gcc gcc-8 golang java-common nodejs python2.7 python3 python-pip python-numpy ruby perl6 perl php openjdk-11-jdk jupyter-client jupyter-console jupyter-core mysql-common
-sudo snap install eclipse intellij-idea-community android-studio  dotnet-sdk kotlin kotlin-native jupyter pycharm-community
+#sudo snap install eclipse intellij-idea-community android-studio  dotnet-sdk kotlin kotlin-native jupyter pycharm-community
 
 #AV
 sudo apt install openshot vlc audacity rhythmbox pulseaudio
@@ -45,9 +45,7 @@ cp .profile ~
 cp .bash_profile ~
 cp .bashrc ~
 cp conky-startup.sh ~
-cp -r .conky/ ~
 cp .vimrc ~
-cp -r .git/ ~
 vim +PluginInstall +qall
 
 #Gets other Github repos's
@@ -55,8 +53,6 @@ echo "Pulling Github repositories"
 mkdir ~/Documents/Github
 cd ~/Documents/Github
 git clone https://github.com/commanderHR1/commanderHR1.github.io
-#git clone https://github.com/commanderHR1/APCS
-#git clone https://github.com/commanderHR1/java-battleship
 
 #Finalizes
 echo "All done! Make sure to check .rc files and conky for proper config!"
