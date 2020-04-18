@@ -13,7 +13,7 @@ sudo apt install arduino fritzing
 sudo apt install 2048-qt 
 
 #Graphics
-sudo apt install blender gimp inkscape mesa-utils netpbm scrot qpdfview
+sudo apt install blender gimp inkscape mesa-utils netpbm scrot qpdfview xscreensaver xscreensaver-data xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra xscreensaver-screensaver-bsod
 
 #Internet/Networking
 sudo apt install chromium-browser bluedevil putty thunderbird wireshark mutt ftp vsftpd quassel wget curl transmission samba rsync iw netcat mailutils postfix
