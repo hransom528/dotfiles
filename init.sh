@@ -1,6 +1,7 @@
 #!/bin/bash
 #Script to set up software
 sudo apt update && sudo apt upgrade
+sudo apt remove firefox
 
 #Accesories
 sudo apt install git ark gnome-calculator vim vim-common vim-runtime vim-tiny emacsen-common libreoffice-base-core snapd acl diffutils cpio debianutils nano hardinfo
