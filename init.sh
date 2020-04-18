@@ -3,7 +3,7 @@
 sudo apt update && sudo apt upgrade
 
 #Accesories
-sudo apt install ark gnome-calculator vim vim-common vim-runtime vim-tiny emacsen-common libreoffice-base-core snapd acl diffutils cpio debianutils nano
+sudo apt install git ark gnome-calculator vim vim-common vim-runtime vim-tiny emacsen-common libreoffice-base-core snapd acl diffutils cpio debianutils nano hardinfo
 sudo snap install snap-store
 
 #Electronics
@@ -21,11 +21,11 @@ sudo apt install chromium-browser bluedevil putty thunderbird wireshark mutt ftp
 #Misc.
 sudo apt install gparted timeshift htop powerline python-powerline fonts-powerline virtualbox xterm qps git mtools dosfstools cifs-utils mariadb-common
 sudo apt install adwaita-icon-theme adwaita-icon-theme-full adwaita-qt conky
-sudo snap install discord barrier-kvm cheat conda hello zoom-client
+sudo snap install discord barrier-kvm cheat conda hello zoom-client rambox
 
 #Programming
-sudo apt install arduino arduino-core codeblocks cutter ecj clang cmake geany thonny ant apache2 automake c2hs cloc cpp cpp-8 g++ g++-8 gcc gcc-8 golang java-common nodejs python2.7 python3 python-pip python-numpy ruby perl6 perl php openjdk-11-jdk jupyter-client jupyter-console jupyter-core mysql-common
-#sudo snap install eclipse intellij-idea-community android-studio  dotnet-sdk kotlin kotlin-native jupyter pycharm-community
+sudo apt install arduino arduino-core codeblocks cutter ecj clang cmake geany thonny ant apache2 automake c2hs cloc cpp cpp-8 g++ g++-8 gcc gcc-8 golang java-common nodejs python2.7 python3 python-pip python-numpy ruby perl6 perl php openjdk-11-jdk jupyter-client jupyter-console jupyter-core mysql-common mu-editor
+#sudo snap install eclipse intellij-idea-community android-studio  dotnet-sdk kotlin kotlin-native jupyter pycharm-community 
 
 #AV
 sudo apt install openshot vlc audacity rhythmbox pulseaudio
