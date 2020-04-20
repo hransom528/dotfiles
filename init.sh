@@ -17,8 +17,8 @@ sudo apt -y install 2048-qt
 sudo apt -y install blender gimp inkscape mesa-utils netpbm scrot qpdfview xscreensaver xscreensaver-data xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra xscreensaver-screensaver-bsod
 
 #Internet/Networking
-sudo apt -y install chromium-browser bluedevil putty thunderbird wireshark mutt ftp vsftpd quassel wget curl transmission samba rsync iw netcat mailutils postfix
-
+sudo apt -y install chromium-browser net-tools nmap bluedevil putty thunderbird wireshark mutt ftp vsftpd quassel wget curl transmission samba rsync iw netcat mailutils postfix
+sudo snap install nutty
 #Misc.
 sudo apt -y install gparted timeshift htop powerline python-powerline fonts-powerline virtualbox xterm qps git mtools dosfstools cifs-utils mariadb-common
 sudo apt -y install adwaita-icon-theme adwaita-icon-theme-full adwaita-qt conky
