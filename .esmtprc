@@ -1,0 +1,5 @@
+identity "hransom528@gmail.com"
+hostname smtp.gmail.com:587
+username "hransom528@gmail.com"
+password "Harran!404"
+starttls required
