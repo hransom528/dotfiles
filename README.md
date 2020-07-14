@@ -1,2 +1,2 @@
-# hransom528-gmail.com
-init-scripts
+#init-scripts
+Debian dotfiles and initialization scripts
