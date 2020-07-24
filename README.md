@@ -1,3 +1,3 @@
-<h1>init-scripts</h1>
+<h1>Dotfiles</h1>
 
 Debian dotfiles and initialization scripts
