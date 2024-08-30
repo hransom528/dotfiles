@@ -26,7 +26,7 @@ sudo apt -y install adwaita-icon-theme adwaita-icon-theme-full adwaita-qt conky
 sudo snap install discord barrier-kvm cheat conda hello rambox
 
 #Programming
-sudo apt -y install arduino arduino-core codeblocks cutter ecj clang cmake geany thonny ant apache2 automake c2hs cloc cpp cpp-8 g++ g++-8 gcc gcc-8 golang java-common nodejs python3 python-pip python-numpy ruby perl6 perl php openjdk-17-jdk jupyter-client jupyter-console jupyter-core mysql-common mu-editor
+sudo apt -y install arduino arduino-core codeblocks cutter ecj clang cmake geany thonny ant apache2 automake c2hs cloc cpp cpp-8 g++ g++-8 gcc gcc-8 golang java-common nodejs python3 python3-dev python3-pip python3-setuptools python-numpy ruby perl6 perl php openjdk-17-jdk jupyter-client jupyter-console jupyter-core mysql-common mu-editor
 #sudo snap install eclipse intellij-idea-community android-studio  dotnet-sdk kotlin kotlin-native jupyter pycharm-community 
 
 #AV
@@ -35,6 +35,12 @@ sudo apt -y install vlc audacity
 #Wine
 sudo apt -y install wine playonlinux wine64 winetricks
 sudo dpkg --add-architecture i386
+
+# Install other misc packages
+pip3 install thefuck --user
+
+# Set up sudo to insult you
+echo "Defaults        insults" >> /etc/sudoers
 
 # Back up local config files if present
 if [ -f ~/.profile ]; then
