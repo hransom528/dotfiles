@@ -64,7 +64,7 @@ conky.config = {
 
 	--Placement
 
-	alignment = 'top_right',						-- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
+	alignment = 'middle_right',						-- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
 												-- middle_left,middle_middle,middle_right,none
 	--Arch Duoscreen
 	--gap_x = -1910,
@@ -112,7 +112,7 @@ conky.config = {
 	--Windows
 
 	own_window = true,						-- create your own window to draw
-	own_window_argb_value = 0,			    -- real transparency - composite manager required 0-255
+	own_window_argb_value = 100,			    -- real transparency - composite manager required 0-255
 	own_window_argb_visual = true,				-- use ARGB - composite manager required
 	own_window_colour = '#000000',				-- set colour if own_window_transparent no
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
@@ -125,7 +125,7 @@ conky.config = {
 
 	default_color = '#D9DDE2',  				-- default color and border color
 	color1 = '#FF0000',
-	color2 = '#597AA1',       --#1270a3
+	color2 = '#88d4fc',       --#1270a3
 	color3 = '#cccccc',
 	color4 = '#D9BC83',
 	color5 = '#00BFFF',
@@ -142,24 +142,26 @@ conky.config = {
 };
 
 conky.text = [[
-${color6}${voffset 4}${font GE Inspira:size=50}${alignc}${time %l}:${time %M} ${time %p}${font}${color}
+${color6}${voffset 4}${font GE Inspira:size=48}${alignc}${time %l}:${time %M} ${time %p}${font}${color}
 ${color6}${voffset 4}${font GE Inspira:size=14}${alignc}${time %A} ${time %B} ${time %e}, ${time %Y}${font}${color}
 
 ${color5}${font Roboto:size=10}${voffset 2}S Y S T E M   ${hr 2}${font}${color}
 ${color2}${voffset 8}Hostname:${color} ${alignr}${nodename}
-${color2}Distro:${color}${alignr}$sysname $kernel ${alignr}${execi 6000 lsb_release -a | grep 'Release'|awk {'print $2""$3""$4""$5'}}
-${color2}Kernel:${color}${alignr}${exec uname} ${exec uname -r}
+${color2}Kernel:${color}${alignr}$sysname $kernel ${alignr}${execi 6000 lsb_release -a | grep 'Release'|awk {'print $2""$3""$4""$5'}}
+${color2}Distro:${color}${alignr}${exec cat /etc/os-release | grep "PRETTY_NAME" | cut -c13- | sed 's/\"//g'}
 #Nvidia: ${alignr}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}
 #Nvidia Driver: ${alignr}${execi 60000 nvidia-smi | grep "Driver Version"| awk {'print $3'}}
 ${color2}Uptime:${color} ${alignr}${uptime}
 ${color5}${font Roboto:size=10}P R O C E S S O R S  ${hr 2}${font}${color}
 ${color2}CPU Freq:${color} $alignr${freq}MHz
-${color2}CPU Temp:${color} $alignr${execi 10 sensors | grep 'Core 0' | awk {'print $3'}}
+${color2}CPU Temp:${color} ${alignr} ${hwmon 0 temp 1}°C
 ${color2}History:${color} ${alignr}${cpugraph 8,100}
 ${color2}${offset 30}CPU Core 1:${color} ${alignr}${offset -10}${cpu cpu1}%${alignr}${cpubar cpu1}
 ${color2}${offset 30}CPU Core 2:${color} ${alignr}${offset -10}${cpu cpu2}%${alignr}${cpubar cpu2}
 ${color2}${offset 30}CPU Core 3:${color} ${alignr}${offset -10}${cpu cpu3}%${alignr}${cpubar cpu3}
 ${color2}${offset 30}CPU Core 4:${color} ${alignr}${offset -10}${cpu cpu4}%${alignr}${cpubar cpu4}
+${color2}${offset 30}CPU Core 5:${color} ${alignr}${offset -10}${cpu cpu5}%${alignr}${cpubar cpu5}
+${color2}${offset 30}CPU Core 6:${color} ${alignr}${offset -10}${cpu cpu6}%${alignr}${cpubar cpu6}
 ${color2}Top Processes${goto 222}cpu%${goto 274}mem%${color}
 ${voffset 4}     1  -  ${top name 1}${alignr}${goto 170} ${goto 222}${top cpu 1} ${goto 274}${top mem 1}
      2  -  ${top name 2}${alignr} ${goto 222}${top cpu 2} ${goto 274}${top mem 2}
@@ -177,15 +179,21 @@ ${voffset 4}     1  -  ${top_mem name 1}${alignr}${goto 170} ${goto 222}${top_me
      5  -  ${top_mem name 5}${alignr}${goto 170} ${goto 222}${top_mem cpu 5} ${goto 274}${top_mem mem 5}
 ${color5}${font Roboto:size=10}D R I V E S   ${hr 2}${font}${color}
 ${offset 30}${color2}Root  -  SSD:${color} ${alignr}${offset -10}${fs_used /} / ${fs_size /}${alignr}${fs_bar}
-${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sdb1}${alignr}${diskiograph_read sdb1 8,100}
-${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sdb1}${alignr}${diskiograph_write sdb1 8,100}
-${offset 30}${color2}2TB HDD:${color} ${alignr}${offset -10}${fs_used /home/harris/2tb} / ${fs_size /home/harris/2tb}${alignr}${fs_bar}
-${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda1}${alignr}${diskiograph_read sda1 8,100}
-${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda1}${alignr}${diskiograph_write sda1 8,100}
+${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1p2}${alignr}${diskiograph_read /dev/nvme0n1p2 8,100}
+${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/nvme0n1p2}${alignr}${diskiograph_write /dev/nvme0n1p2 8,100}
+${offset 30}${color2}Old HDD:${color} ${alignr}${offset -10}${fs_used /mnt/oldhd} / ${fs_size /mnt/oldhd}${alignr}${fs_bar /mnt/oldhd}
+${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda}${alignr}${diskiograph_read /dev/sda 8,100}
+${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda}${alignr}${diskiograph_write /dev/sda 8,100}
+${offset 30}${color2}New HDD:${color} ${alignr}${offset -10}${fs_used /mnt/newhd} / ${fs_size /mnt/newhd}${alignr}${fs_bar /mnt/newhd}
+${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sdb}${alignr}${diskiograph_read /dev/sdb 8,100}
+${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sdb}${alignr}${diskiograph_write /dev/sdb 8,100}
+${offset 30}${color2}BigSSD:${color} ${alignr}${offset -10}${fs_used /mnt/nvme0} / ${fs_size /mnt/nvme0}${alignr}${fs_bar /mnt/nvme0}
+${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /mnt/nvme0}${alignr}${diskiograph_read /mnt/nvme0 8,100}
+${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /mnt/nvme0}${alignr}${diskiograph_write /mnt/nvme0 8,100}
 ${color5}${color5}${font Roboto:size=10}N E T W O R K   ${hr 2}${font}${color}
-${color2}${offset 30}IP Address: ${color} ${alignr}${offset -10$}${addrs enp5s0}
-${color2}${offset 30}Eth Up:${color} ${alignr}${offset -10$}${upspeed enp5s0}${alignr}${upspeedgraph enp5s0 8,100}
-${color2}${offset 30}Eth Down:${color} ${alignr}${offset -10$}${downspeed enp5s0}${alignr}${downspeedgraph enp5s0 8,100}
+${color2}${offset 30}IP Address: ${color} ${alignr}${offset -10$}${addrs enp42s0}
+${color2}${offset 30}Eth Up:${color} ${alignr}${offset -10$}${upspeed enp42s0}${alignr}${upspeedgraph enp42s0 8,100}
+${color2}${offset 30}Eth Down:${color} ${alignr}${offset -10$}${downspeed enp42s0}${alignr}${downspeedgraph enp42s0 8,100}
 #${font Roboto:size=10}N V I D I A   ${hr 2}${font}
 #${font Roboto:size=10,weight:bold}${color5}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}${font}
 #${font StyleBats:size=20}u${font}${offset 8}${voffset -12}GPU Temp ${alignr}${execi 60 nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader} °C
