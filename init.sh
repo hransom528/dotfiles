@@ -1,19 +1,19 @@
-#!/bin/bash
 #Script to set up software
 sudo apt -y update && sudo apt upgrade
 
 #Accesories
-sudo apt -y install git ark gnome-calculator vim vim-common vim-runtime vim-tiny libreoffice-base-core snapd acl diffutils cpio debianutils nano hardinfo
+sudo apt -y install git ark vim vim-common vim-runtime vim-tiny libreoffice-base-core snapd acl diffutils cpio debianutils nano hardinfo
 sudo snap install snap-store
 
 #Electronics
 sudo apt -y install arduino fritzing 
 
 #Games
-sudo apt -y install 2048-qt 
+#sudo apt -y install 2048-qt 
+sudo apt -y install steam
 
 #Graphics
-sudo apt -y install gimp inkscape mesa-utils netpbm scrot qpdfview xscreensaver xscreensaver-data xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra xscreensaver-screensaver-bsod
+#sudo apt -y install gimp inkscape mesa-utils netpbm scrot qpdfview xscreensaver xscreensaver-data xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra xscreensaver-screensaver-bsod
 
 #Internet/Networking
 sudo apt -y install net-tools nmap bluedevil putty thunderbird wireshark mutt ftp vsftpd quassel wget curl samba rsync iw netcat mailutils postfix
@@ -66,6 +66,7 @@ cp .condarc ~
 cp .profile ~
 cp .bash_profile ~
 cp .bashrc ~
+cp -r .conky/ ~
 cp conky-startup.sh ~
 
 # Set up tmux
